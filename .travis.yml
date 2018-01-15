@@ -12,6 +12,5 @@ before_script:
   - 'meteor npm install'
   - 'meteor update --patch'
   - cp sample_settings.json settings.json
-  - 'meteor --settings settings.json'
 
 script: npm test
