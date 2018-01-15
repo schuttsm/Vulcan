@@ -10,5 +10,6 @@ install:
 before_script:
   - "export PATH=$HOME/.meteor:$PATH"
   - 'meteor npm install'
+  - 'meteor update --patch'
 
 script: npm test
