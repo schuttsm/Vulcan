@@ -11,6 +11,7 @@ before_script:
   - "export PATH=$HOME/.meteor:$PATH"
   - 'meteor npm install'
   - 'meteor update --patch'
-  - 'meteor --settings $TRAVIS_BUILD_DIR/settings.json'
+  - cp sample_settings.json settings.json
+  - 'meteor --settings settings.json'
 
 script: npm test
