@@ -4,6 +4,10 @@ var kill = require('kill-process'),
   spawn = require('child_process').spawn;
 
 var procs = [];
+var meteor_path = 'meteor';
+var isWin = /^win/.test(process.platform);
+
+if (isWin) meteor_path += '.bat';
 
 function closeProcs() {
   console.log('closing procs');
@@ -29,7 +33,8 @@ process.on('unhandledRejection', (reason, p) => {
 
 const setPackage = package_name => {
   return new Promise((resolve, reject) => {
-    var proc = spawn('meteor.bat', ['add', package_name], { stdio: 'inherit' });
+    console.log('calling meteor add ' + package_name);
+    var proc = spawn(meteor_path, ['add', package_name], { stdio: 'inherit' });
     proc.on('close', function() {
       resolve();
     });
@@ -38,7 +43,8 @@ const setPackage = package_name => {
 
 const resetMeteor = () => {
   return new Promise((resolve, reject) => {
-    var proc = spawn('meteor.bat', ['reset'], { stdio: 'inherit' });
+    console.log('calling meteor reset');
+    var proc = spawn(meteor_path, ['reset'], { stdio: 'inherit' });
     proc.on('close', function() {
       return resolve();
     });
@@ -47,7 +53,8 @@ const resetMeteor = () => {
 
 const startMeteor = () => {
   return new Promise((resolve, reject) => {
-    var proc = spawn('meteor.bat', ['--settings', 'settings.json']);
+    console.log('starting Meteor server');
+    var proc = spawn(meteor_path, ['--settings', 'settings.json']);
     procs.push(proc);
     proc.stdout.on('data', (data) => {
       var line = data.toString();

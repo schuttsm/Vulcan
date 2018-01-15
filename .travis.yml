@@ -3,7 +3,12 @@ node_js:
   - "stable"
 
 install:
+  - "curl https://install.meteor.com | /bin/sh"
   - npm install
   - npm run test-install
+
+before_script:
+  - "export PATH=$HOME/.meteor:$PATH"
+  - 'meteor npm install'
 
 script: npm test
