@@ -7,7 +7,7 @@
   "scripts": {
     "start": "meteor --settings settings.json",
     "lint": "eslint --cache --ext .jsx,js packages",
-    "test": "node tests\\integration\\run-tests.js",
+    "test": "node ./tests/integration/run-tests.js",
     "test-install": "./node_modules/.bin/selenium-standalone install"
   },
   "dependencies": {
