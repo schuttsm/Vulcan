@@ -53,6 +53,7 @@ const resetMeteor = () => {
 
 const startMeteor = () => {
   return new Promise((resolve, reject) => {
+    return resolve();
     console.log('starting Meteor server');
     var proc = spawn(meteor_path, ['--settings', 'settings.json']);
     procs.push(proc);
