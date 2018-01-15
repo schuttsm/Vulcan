@@ -93,7 +93,7 @@ const runTestPackage = ((package_name, callback) => {
   return new Promise((resolve, reject) => {
     var wdio_conf_file = path.join(__dirname, package_name, 'wdio.conf.js');
     console.log('running test package: ' + wdio_conf_file);
-    var wdio_proc = spawn(path.join(__dirname, '..', '..', 'node_modules', '.bin', 'wdio.cmd'), [wdio_conf_file], {'stdio': 'inherit'});
+    var wdio_proc = spawn(path.join(__dirname, '..', '..', 'node_modules', '.bin', 'wdio' + (isWin ? '.cmd' : '')), [wdio_conf_file], {'stdio': 'inherit'});
     wdio_proc.on('error', function(data) {
       return reject(new Error(data.toString()));
     });
