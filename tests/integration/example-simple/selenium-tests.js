@@ -8,7 +8,7 @@ describe('integration tests', function() {
   before(function() {
     browser = wdio.getBrowser({desiredCapabilities: {browserName: 'chrome'}});
     browser.init();
-    browser.url('http://localhost:3000');
+    browser.url('/');
     browser.waitForVisible('#usernameOrEmail');
     chai.assert.equal('Your site title', browser.getTitle());
   });
