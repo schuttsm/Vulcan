@@ -6,9 +6,10 @@ describe('integration tests', function() {
   var browser;
   var testUser = 'testUser', testPwd = 'testPwd', testEmail = 'test@test.com';
   before(function() {
+    console.log('starting')
     browser = wdio.getBrowser({desiredCapabilities: {browserName: 'chrome'}});
     browser.init();
-    browser.url('/');
+    browser.url('http://localhost:3000/');
     browser.waitForVisible('#usernameOrEmail');
     chai.assert.equal('Your site title', browser.getTitle());
   });
