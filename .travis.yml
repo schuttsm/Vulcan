@@ -12,5 +12,9 @@ before_script:
   - 'meteor npm install'
   - 'meteor update --patch'
   - cp sample_settings.json settings.json
+  - ./node_modules/.bin/selenium-standalone install
+  - meteor --settings settings.json
+  - ./node_modules/.bin/selenium-standalone start
 
-script: npm test
+script:
+  - ./node_modules/.bin/wdio ./tests/integration/example-simple/wdio.conf.js
