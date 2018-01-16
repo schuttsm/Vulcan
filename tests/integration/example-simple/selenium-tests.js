@@ -2,7 +2,7 @@ const wdio = require('wdio');
 const chai = require('chai');
 
 describe('integration tests', function() {
-  this.timeout(1000 * 60);
+  this.timeout(1000 * 60 * 5);
   var browser;
   var testUser = 'testUser', testPwd = 'testPwd', testEmail = 'test@test.com';
   before(function() {
