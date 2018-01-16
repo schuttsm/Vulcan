@@ -13,6 +13,6 @@ before_script:
   - cp sample_settings.json settings.json
   - ./node_modules/.bin/selenium-standalone install
   - ./node_modules/.bin/selenium-standalone start &
-  - 'meteor --settings settings.json' &
+  - 'meteor --settings settings.json &'
 
 script: ./node_modules/.bin/wdio ./tests/integration/example-simple/wdio.conf.js
