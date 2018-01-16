@@ -46,7 +46,7 @@ exports.config = {
         //
         browserName: 'chrome',
         chromeOptions: {
-          args: ['no-sandbox']
+          args: ['--headless', '--disable-gpu', '--window-size=1920,1080', '--no-sandbox']
         }
     }],
     //
