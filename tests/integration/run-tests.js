@@ -102,9 +102,7 @@ const runTestPackage = ((package_name, callback) => {
 });
 
 var package_name = 'example-simple';
-setPackage(package_name)
-  .then(resetMeteor)
-  .then(startMeteor)
+startMeteor()
   .then(startSelenium)
   .then(runTestPackage.bind(null, package_name))
   .catch((reason) => {

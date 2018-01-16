@@ -5,7 +5,6 @@ node_js:
 install:
   - "curl https://install.meteor.com | /bin/sh"
   - npm install
-  - npm run test-install
 
 before_script:
   - "export PATH=$HOME/.meteor:$PATH"
@@ -13,8 +12,5 @@ before_script:
   - 'meteor update --patch'
   - cp sample_settings.json settings.json
   - ./node_modules/.bin/selenium-standalone install
-  - ./node_modules/.bin/selenium-standalone start
-  - meteor --settings settings.json
 
-script:
-  - ./node_modules/.bin/wdio ./tests/integration/example-simple/wdio.conf.js
+script: npm test
